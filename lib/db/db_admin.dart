@@ -33,25 +33,25 @@ class DBadmin {
   }
 
   // INSERTANDO UN INSERTRAW....
-  insertRawColegio() async {
+  Future<int> insertRawColegio(ColegioModel model) async {
     Database? db = await checkDatabase();
     int res = await db!.rawInsert(
-        "INSERT INTO alumno( nombres, apellidos, status) VALUES ('ren','diaz','falso')");
-    print(res);
+        "INSERT INTO alumno( nombres, apellidos, status) VALUES ('${model.nombres}','${model.apellidos}','${model.status.toString()}')");
+    return res;
   }
 
   // INSERT NORMAL.......
-  insertColegio() async {
+  Future<int> insertColegio(ColegioModel model) async {
     Database? db = await checkDatabase();
     int res = await db!.insert(
       "alumno",
       {
-        "nombres": "renso compra un disco",
-        "apellidos": " diaz dico de BAD BONNY",
-        "status": "falso",
+        "nombres": "model.nombres",
+        "apellidos": " model.apellidos",
+        "status": "model.status",
       },
     );
-    print(res);
+    return res;
   }
 
   // GETRAW OBTENER TODOS LOS REGISTROS .............

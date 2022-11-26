@@ -1,10 +1,10 @@
 class ColegioModel {
-  int id;
+  int? id;
   String nombres;
   String apellidos;
   String status;
   ColegioModel({
-    required this.id,
+    this.id,
     required this.nombres,
     required this.apellidos,
     required this.status,

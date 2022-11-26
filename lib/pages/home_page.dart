@@ -1,4 +1,6 @@
 import 'package:app5_basededatos/db/db_admin.dart';
+import 'package:app5_basededatos/models/cole_model.dart';
+import 'package:app5_basededatos/widgets/my_form_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,65 +17,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (BuildContext) {
-        return AlertDialog(
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text("Agregar Tarea"),
-              SizedBox(
-                height: 6.0,
-              ),
-              TextField(
-                decoration: InputDecoration(hintText: "Titulo"),
-              ),
-              SizedBox(
-                height: 6.0,
-              ),
-              TextField(
-                maxLines: 3,
-                decoration: InputDecoration(hintText: "Descripcion"),
-              ),
-              SizedBox(
-                height: 6.0,
-              ),
-              Row(
-                children: [
-                  Text("estado: "),
-                  SizedBox(
-                    width: 6.0,
-                  ),
-                  Checkbox(
-                    value: true,
-                    onChanged: (value) {},
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      "cancelar",
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text("aceptar,"),
-                  ),
-                ],
-              )
-            ],
-          ),
-        );
+        return MyForWidget();
       },
     );
   }
